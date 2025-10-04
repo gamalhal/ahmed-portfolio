@@ -1,0 +1,168 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #2e7d4b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #2da3c4;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+h1 {
+
+  color: blue;
+}
+
+
+
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow:hidden;
+}
+
+video {
+  position:absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:fill ;
+  
+  z-index:   
+-1; 
+ /* Place video behind other content */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  color: rgb(251, 253, 250);
+  font-size:50px;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Place text overlay in front of video */}
+
+
+  #btn {
+    font: inherit;
+    font-size: 0.9375em !important;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 2.5em;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    color: #FFF;
+    transition: -webkit-transform 0.2s, transform 0.2s, box-shadow 0.2s;
+    background-color: #2B98F0;
+    -webkit-transition: -webkit-transform 0.2s, transform 0.2s, box-shadow 0.2s;
+    -moz-transition: transform 0.2s, box-shadow 0.2s;
+}
+  
+
+.sec {
+  flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 8vw !important;
+    -webkit-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+
+    font-family: inherit;
+    font-size: 1em;
+    background-color: #121212 !important;
+    color: #fcfcfc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+.gamal {
+
+ackground-image: url(/src/images/11.jpg);
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center center;
+position: relative;
+display: flex;
+width: 50vw;
+height: 30vw;
+margin: auto;
+cursor: pointer;
+-webkit-box-align: center;
+align-items: center;
+}
+
+
+#cat
+{
+  background-image: url(https://d3uwib8iif8w1p.cloudfront.net/quixel/megascans/bridge_UE5.jpeg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  position: relative;
+  display: flex;
+  width: 50vw;
+  height: 30vw;
+  margin: auto;
+  cursor: pointer;
+  -webkit-box-align: center;
+  align-items: center;
+}

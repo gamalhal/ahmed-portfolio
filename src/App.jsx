@@ -17,7 +17,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import myVideo from './videos/all.mov';
+import myVideo from './videos/backgroundvideo.mp4';
 import { styled } from '@mui/material/styles';
 // ...existing code...
 
@@ -54,31 +54,17 @@ function App() {
     <section className='sec'>  
 
 
+        <p>As a passionate architect, My work focuses on blending modern design with sustainable practices, crafting environments that harmonize with both their natural and urban surroundings. With a deep appreciation for the balance between form and function
 
-    <h5>What is Bridge</h5>
-      <h2>Discover a World of Content
-      with Bridge</h2>
-
-     
+With experience in residential, commercial, heritage, parametric, therapeutic, and sustainable architecture as well as urban planning, and proficiency in tools such as [Rhino & Grasshopper, Revit, SketchUp, Lumion, 3dsMax, UnrealEngine 5, etc], I approach each project with a fresh perspective, ensuring that every detail, from concept to execution, aligns with the client’s vision and the environment's needs.</p>
+    
         
-    <div>
-<h5>Much to Explore</h5>
-<p> Browse the libraries of Megascans and MetaHumans content in a quick and artist-friendly way through Bridge. </p>
-
-    </div>
+   
      <div>
 
-<h5>Also Inside Unreal Engine 5
-</h5>
-<p>Fire up an all-new Bridge tab right inside of Unreal Engine 5 and drop optimized content directly into your project.</p>
-     </div>
-   <div>
-<h5>Work with your tools
-</h5>
-<p>
-Seamlessly export to your favorite 3D application or game engine with one click. Save time and have fun creating.
 
-</p>
+
+
    </div>
     </section>
 
@@ -289,8 +275,8 @@ const VideoBackground = () => {
         WELCOME TO AHMED HAL PORTFOLIO
         <Button id="btn"
           onClick={() => {
-            window.location.href = "https://www.linkedin.com/in/gamal-hal/";
-            window.open("https://www.linkedin.com/in/gamal-hal/");
+            window.location.href = "https://www.linkedin.com/in/ahmed-hal/";
+            window.open("https://www.linkedin.com/in/ahmed-hal/");
           }}
         >
           MY CV
@@ -305,7 +291,7 @@ const VideoBackground = () => {
 function ProfilePhoto() {
   return (
     <Avatar
-      src="./images/11.jpg" // Replace with the actual path to your image
+      src="./images/ahmedhal.jpeg" // Replace with the actual path to your image
       alt="Profile"
       sx={{ width: 50, height: 50 }}
     />
@@ -317,7 +303,7 @@ function ProfilePhoto() {
 
 const GamalHal = () => {
   return (
-    <div id="cat"><iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/ParMLadMTaQ?rel=0" title="Meet Bridge for Unreal Engine 5" frameborder="0" allowfullscreen="">
+    <div id="cat"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/esccolIXnB0" title="Meet Bridge for Unreal Engine 5" frameborder="0" allowfullscreen="">
       </iframe>
       
       

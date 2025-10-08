@@ -1,4 +1,4 @@
-// ...existing code...
+import React, { useEffect, useRef } from 'react';
 import './App.css';
 import Button from '@mui/material/Button';
 import ImageList from '@mui/material/ImageList';
@@ -17,8 +17,8 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import myVideo from './videos/backgroundvideo.mp4';
 import { styled } from '@mui/material/styles';
+import myVideo from './videos/backgroundvideo.mp4';
 // ...existing code...
 
 import Grid from '@mui/material/Grid';
@@ -109,7 +109,13 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+    <AppBar position="fixed" sx={{ 
+      backgroundColor: 'rgba(0, 0, 0, 0.8)', 
+      backdropFilter: 'blur(10px)',
+      WebkitBackdropFilter: 'blur(10px)',
+      boxShadow: '0 2px 20px rgba(0, 0, 0, 0.3)',
+      borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+    }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -241,15 +247,13 @@ function ResponsiveAppBar() {
 
 // video
 
-
-import React, { useEffect, useRef } from 'react';
-
 const VideoBackground = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    
     const handleLoadedMetadata = () => {
       const videoRatio = video.videoWidth / video.videoHeight;
       const containerRatio = window.innerWidth / window.innerHeight;
@@ -259,24 +263,67 @@ const VideoBackground = () => {
         video.style.objectFit = 'cover';
       }
     };
+
+    const handleError = () => {
+      console.error('Video failed to load');
+    };
+
+    const handleCanPlay = () => {
+      video.play().catch(error => {
+        console.error('Autoplay failed:', error);
+      });
+    };
+
+    const handleLoadedData = () => {
+      // Force play when data is loaded
+      video.play().catch(error => {
+        console.error('Autoplay failed on loadeddata:', error);
+      });
+    };
+
+    // Add multiple event listeners to ensure video plays
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    video.addEventListener('error', handleError);
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('loadeddata', handleLoadedData);
+    
+    // Try to play immediately
+    setTimeout(() => {
+      if (video.readyState >= 2) { // HAVE_CURRENT_DATA
+        video.play().catch(error => {
+          console.error('Autoplay failed on timeout:', error);
+        });
+      }
+    }, 100);
+    
     return () => {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      video.removeEventListener('error', handleError);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('loadeddata', handleLoadedData);
     };
   }, []);
 
   return (
     <div className="video-container">
-      <video ref={videoRef} autoPlay loop muted>
+      <video 
+        ref={videoRef} 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        preload="auto"
+        style={{ width: '100%', height: '100%' }}
+      >
         <source src={myVideo} type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
       <div className="text-overlay">
         <ProfilePhoto/>
         WELCOME TO AHMED HAL PORTFOLIO
         <Button id="btn"
           onClick={() => {
-            window.location.href = "https://www.linkedin.com/in/ahmed-hal/";
-            window.open("https://www.linkedin.com/in/ahmed-hal/");
+            window.open("https://www.linkedin.com/in/ahmed-hal/", "_blank");
           }}
         >
           MY CV
@@ -291,7 +338,7 @@ const VideoBackground = () => {
 function ProfilePhoto() {
   return (
     <Avatar
-      src="./images/ahmedhal.jpeg" // Replace with the actual path to your image
+      src="/src/images/ahmedhal.jpeg"
       alt="Profile"
       sx={{ width: 50, height: 50 }}
     />

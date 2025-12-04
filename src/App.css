@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: transparent;
+  background-color: #2e7d4b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,34 +22,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  position: relative;
-  padding-top: 80px; /* Add space for fixed navbar */
 }
 
 .App-link {
   color: #2da3c4;
-}
-
-/* Navbar styles */
-.MuiAppBar-root {
-  background-color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  backdrop-filter: blur(10px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-.MuiAppBar-root .MuiTypography-root {
-  color: white !important;
-  font-weight: bold !important;
-}
-
-.MuiAppBar-root .MuiButton-root {
-  color: white !important;
-  font-weight: 500 !important;
-}
-
-.MuiAppBar-root .MuiButton-root:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 @keyframes App-logo-spin {
@@ -77,36 +53,21 @@ h1 {
   overflow:hidden;
 }
 
-.video-container video {
+video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1; /* Place video in front of background */
+  z-index: 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .text-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   color: rgb(251, 253, 250);
   font-size: 50px;
   transform: translate(-50%, -50%);
-  z-index: 2; /* Place text overlay in front of video */
-  text-align: center;
+  z-index: 1;
 }
 
 
@@ -145,14 +106,12 @@ h1 {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-
-    font-family: inherit;
-    font-size: 1em;
-    background-color: #121212 !important;
-    color: #fcfcfc;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
+  font-family: inherit;
+  font-size: 1em;
+  background-color: #121212 !important;
+  color: #fcfcfc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .gamal {
